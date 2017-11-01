@@ -23,12 +23,12 @@ sum(daily_steps$steps,na.rm=T)
 
 sum 570608
 
-
 2.) Make a histogram of the total number of steps taken each day
 
 ```{r}
 hist(daily_steps$steps,xlab="day",col="light blue",main="Total Steps by Day",ylim=c(0,45))
 ```
+
 ![alt tag](https://github.com/brianfleharty/Coursera-Reproducible-Research-Peer-Assessment-1/blob/master/total_steps_hist01.png)
 
 3.) Calculate and report the mean and median of the total number of steps taken per day
@@ -52,6 +52,7 @@ time_series<-tapply(activity$steps, activity$interval, mean, na.rm = TRUE)
 plot(row.names(time_series),time_series,type="l",col="blue",ylab="average across all days"
 ,xlab = "5-min interval",main="Average Number of Steps Taken")
 ```
+
 ![alt tag](https://github.com/brianfleharty/Coursera-Reproducible-Research-Peer-Assessment-1/blob/master/time_series02.png)
 
 2.) Which 5-minute interval, on average across all the days in the dataset, contains 
@@ -125,6 +126,7 @@ hist(new_d.steps$steps,xlab="Number of Steps",col="red",main="Total Steps by Day
 hist(daily_steps$steps,xlab="Number of Steps",col="blue",main="Total Steps by Day",ylim=c(0,45), add=T)
 legend("topright", c("Imputed", "Non-imputed"), col=c("blue", "red"), lwd=10)
 ```
+
 ![alt tag](https://github.com/brianfleharty/Coursera-Reproducible-Research-Peer-Assessment-1/blob/master/total_steps02.png)
 
 The histogram has a higher peak height. The frequency now maxes out at 35 instead of 30.
@@ -138,7 +140,6 @@ mean 10766.19
 
 median 10766.19
 
-
 After replacing the values the mean is the same but the median is slightly different.
 
 ###Are there differences in activity patterns between weekdays and weekends?
@@ -148,6 +149,7 @@ For this part the weekdays() function may be of some help here. Use the dataset
 with the filled-in missing values for this part.
 
 
+col.names
 ```{r}
 new_d.set[,4]<-weekdays(new_d.set[,2])
 
@@ -204,9 +206,11 @@ plot(row.names(new_d.set2_we),new_d.set2_we,type="l",col="blue",ylab="number of 
 plot(row.names(new_d.set2_wd),new_d.set2_wd,type="l",col="blue",ylab="number of steps"
 ,xlab = "5-min interval",main="weekday")
 ```
+
 ![alt tag](https://github.com/brianfleharty/Coursera-Reproducible-Research-Peer-Assessment-1/blob/master/weekend.png)
 
 ![alt tag](https://github.com/brianfleharty/Coursera-Reproducible-Research-Peer-Assessment-1/blob/master/weekday.png)
+
 
 There are differences in activity.  The weekday has more activity in the morning and the weekend 
 has more activity in the afternoon.
